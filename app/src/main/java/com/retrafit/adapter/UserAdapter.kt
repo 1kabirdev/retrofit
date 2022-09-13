@@ -32,11 +32,11 @@ class UserAdapter(private var users: ArrayList<Users>) : RecyclerView.Adapter<Us
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private var image: ImageView = view.findViewById(R.id.image)
-        private var login: TextView = view.findViewById(R.id.login)
+        private var login: TextView = view.findViewById(R.id.image)
 
         fun bindView(holder: ViewHolder, users: Users) {
-            holder.login.text = users.getLogin()
-            Picasso.get().load(users.getAvatarUrl()).into(holder.image)
+            holder.login.text = users.login
+            Picasso.get().load(users.avatar).into(holder.image)
         }
     }
 }

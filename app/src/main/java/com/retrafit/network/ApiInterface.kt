@@ -9,17 +9,17 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiInterface {
-    @GET("users")
-    fun getMovies(): Call<ArrayList<Users>>
+    @GET("/users")
+    fun getListUser(): Call<ArrayList<Users>>
 
     companion object {
 
-        var BASE_URL = "https://api.github.com/"
+        private var BASE_URL = "https://api.github.com/"
 
         fun create(): ApiInterface {
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
+                .baseUrl("")
                 .build()
             return retrofit.create(ApiInterface::class.java)
         }
